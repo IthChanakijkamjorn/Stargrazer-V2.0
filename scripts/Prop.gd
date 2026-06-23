@@ -1,4 +1,5 @@
 extends Node2D
+class_name Prop
 ## Stargazer - Prop
 ## A single code-drawn decoration/obstacle (rock, tree, bush, flower, crystal).
 ## Everything is drawn in _draw(), so NO art files are needed.
@@ -19,7 +20,7 @@ func _ready() -> void:
 	queue_redraw()
 
 # Factory helper.
-static func make(p_kind: Kind) -> Node2D:
+static func make(p_kind: Kind) -> Prop:
 	var p := Prop.new()
 	p.kind = p_kind
 	return p
