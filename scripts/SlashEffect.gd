@@ -1,4 +1,5 @@
 extends Node2D
+class_name SlashEffect
 ## Stargazer - SlashEffect
 ## A quick white arc that sweeps in the attack direction, then fades.
 ## Purely code-drawn (uses _draw), so no art assets are needed.
