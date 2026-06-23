@@ -1,4 +1,5 @@
 extends Node2D
+class_name DamageNumber
 ## Stargazer - DamageNumber
 ## A floating number that pops up, drifts upward, and fades out.
 ## Spawn it with DamageNumber.spawn(parent, position, amount).
