@@ -138,7 +138,7 @@ func set_dash(ready_fraction: float) -> void:
 func _refresh_salve() -> void:
 	if _salve_label == null:
 		return
-	_salve_label.text = "Q  Starlight Salve x%d" % GameState.data.count("salve")
+	_salve_label.text = "Q  %s x%d" % [GameData.item_name("salve"), GameState.data.count("salve")]
 
 func show_banner(text: String, color: Color = Palette.GOLD) -> void:
 	_banner.text = text

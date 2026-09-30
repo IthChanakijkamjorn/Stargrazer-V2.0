@@ -71,7 +71,7 @@ static func _control_lines() -> Array:
 		"Aim — move the mouse (keyboard aim also works)",
 		"Dash — Shift or right mouse",
 		"Interact / till / plant / harvest — E",
-		"Use Starlight Salve — Q",
+		"Use Astral Salve — Q",
 		"Satchel & Star Forge — C",
 		"Inventory summary — Tab or I",
 		"Skip boss intro — Enter or Space",

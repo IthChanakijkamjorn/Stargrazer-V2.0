@@ -19,11 +19,9 @@ func _ready() -> void:
 	_add_toggle(box, "Reduced flashing", "reduced_flash")
 	_add_toggle(box, "Show damage numbers", "show_damage_numbers")
 
-	var note := UIKit.label(
+	box.add_child(UIKit.wrapped(
 		"Stargazer ships with no audio yet, so the volume sliders are stored for future builds.",
-		12, Palette.TEXT_DIM)
-	note.custom_minimum_size = Vector2(320, 0)
-	box.add_child(note)
+		320.0, 12))
 
 func _add_slider(parent: Control, text: String, key: String) -> void:
 	var row := UIKit.hbox(10)

@@ -123,7 +123,7 @@ func _tick_sweep(delta: float, t: float) -> void:
 	var interval := 0.1
 	while _volley_index < 24 and t >= 0.55 + float(_volley_index) * interval:
 		for sign_i in [-1.0, 1.0]:
-			var a := _fan_rotation * sign_i + (0.0 if sign_i > 0.0 else PI)
+			var a: float = _fan_rotation * float(sign_i) + (0.0 if float(sign_i) > 0.0 else PI)
 			shoot(global_position + Vector2(cos(a), sin(a)) * body_radius, Vector2(cos(a), sin(a)) * 240.0, {
 				"damage": 10,
 				"radius": 7.0,

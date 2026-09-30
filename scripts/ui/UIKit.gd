@@ -12,7 +12,17 @@ static func label(text: String, size: int = 16, color: Color = Palette.TEXT) -> 
 	l.add_theme_color_override("font_color", color)
 	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.75))
 	l.add_theme_constant_override("outline_size", 4)
+	l.clip_text = true
+	return l
+
+## A label that wraps inside a fixed width. Autowrap is opt-in because an
+## unconstrained wrapping label inflates its container's minimum height.
+static func wrapped(text: String, width: float, size: int = 14, color: Color = Palette.TEXT_DIM) -> Label:
+	var l := label(text, size, color)
+	l.clip_text = false
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	l.custom_minimum_size = Vector2(width, 0)
+	l.size_flags_horizontal = Control.SIZE_FILL
 	return l
 
 static func title(text: String, size: int = 34, color: Color = Palette.GOLD) -> Label:

@@ -15,8 +15,8 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var center := size * Vector2(0.5, 0.42)
-	var r := minf(size.x, size.y) * 0.22
+	var center := size * Vector2(0.5, 0.30)
+	var r := minf(size.x, size.y) * 0.17
 
 	Palette.draw_halo(self, center, r * 3.0, Color(Palette.VIOLET.r, Palette.VIOLET.g, Palette.VIOLET.b, 0.10), 5)
 
@@ -24,10 +24,12 @@ func _draw() -> void:
 	_draw_ring(center, r, false)
 	draw_circle(center, r, Color(0.16, 0.14, 0.3, 0.92))
 	draw_circle(center - Vector2(r * 0.18, r * 0.2), r * 0.8, Color(0.24, 0.2, 0.42, 0.9))
-	for i in range(4):
-		var y := center.y - r * 0.5 + float(i) * r * 0.33
-		var half := sqrt(maxf(r * r - pow(y - center.y, 2.0), 0.0)) * 0.9
-		draw_line(Vector2(center.x - half, y), Vector2(center.x + half, y), Color(Palette.GOLD.r, Palette.GOLD.g, Palette.GOLD.b, 0.12), r * 0.12)
+	for i in range(7):
+		var y := center.y - r * 0.68 + float(i) * r * 0.22
+		var half := sqrt(maxf(r * r - pow(y - center.y, 2.0), 0.0)) * 0.92
+		var tint := Palette.GOLD if i % 2 == 0 else Palette.CYAN
+		draw_line(Vector2(center.x - half, y), Vector2(center.x + half, y),
+			Color(tint.r, tint.g, tint.b, 0.10), r * 0.055, true)
 	_draw_ring(center, r, true)
 
 	# A handful of orbiting motes.

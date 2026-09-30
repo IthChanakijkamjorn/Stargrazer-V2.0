@@ -19,6 +19,9 @@ func _ready() -> void:
 
 	var stars := Starfield.new()
 	stars.static_background = true
+	stars.area = Vector2(1800, 1100)
+	stars.star_count = 300
+	stars.nebula_count = 5
 	add_child(stars)
 
 	var emblem := TitleEmblem.new()
@@ -102,9 +105,8 @@ func _request_new_game() -> void:
 	var box := UIKit.vbox(10)
 	panel.add_child(box)
 	box.add_child(UIKit.label("Overwrite your save?", 22, Palette.GOLD))
-	box.add_child(UIKit.label(
-		"A new game erases your materials, upgrades, crops and defeated bosses.",
-		14, Palette.TEXT_DIM))
+	box.add_child(UIKit.wrapped(
+		"A new game erases your materials, upgrades, crops and defeated bosses.", 380.0))
 	var row := UIKit.hbox(10)
 	var yes := UIKit.button("Start over", Palette.DANGER)
 	yes.pressed.connect(_start_new_game)

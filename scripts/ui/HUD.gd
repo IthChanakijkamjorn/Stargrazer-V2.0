@@ -8,7 +8,7 @@ class_name HUD
 
 signal summon_requested(boss_id: String)
 
-const TRACKED_ITEMS := ["astral_shard", "void_ore", "ember_bloom", "emberseed", "salve"]
+const TRACKED_ITEMS := ["stardust", "voidstone", "emberseed", "ember_bloom", "salve"]
 
 var _health_bar: ProgressBar
 var _health_label: Label
