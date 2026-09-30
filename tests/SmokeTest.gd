@@ -138,6 +138,8 @@ func _test_boss_victory(boss_id: String) -> void:
 
 	var arena: BossArena = await _instantiate("res://scenes/BossArena.tscn")
 	_check(arena.boss != null and is_instance_valid(arena.boss), "the boss spawned")
+	_check(arena.boss.boss_id == boss_id, "the spawned scene matches the summoned boss")
+	_check(arena.boss.encounter.phase_count() == 2, "the encounter has two phases")
 	_check(arena.player != null and is_instance_valid(arena.player), "the player spawned")
 	_check(GameState.pending_boss_id == "", "the queued encounter is cleared so a reload cannot resurrect it")
 
@@ -205,6 +207,9 @@ func _test_saturn_unlock() -> void:
 	var arena: BossArena = await _instantiate("res://scenes/BossArena.tscn")
 	_check(arena.boss != null and is_instance_valid(arena.boss), "Saturn spawned")
 	_check(arena.definition.get("name", "") == "Saturn", "the correct encounter loaded")
+	_check(arena.boss.boss_id == "saturn", "the scene carries its own boss id")
+	_check(arena.boss.accent_color() == arena.definition["accent"], "the accent comes from the data table")
+	_check(arena.boss.max_health != 620, "Saturn is tuned separately from Mars")
 	arena._begin_fight()
 	await _wait(2.5)
 	_check(arena.boss.encounter.is_alive(), "Saturn survives its opening patterns")
